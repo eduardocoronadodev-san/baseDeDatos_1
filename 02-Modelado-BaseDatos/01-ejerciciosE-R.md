@@ -32,7 +32,12 @@ Un hospital registra información de sus pacientes.
 > - Determinar la participación de cada entidad.
 
 ![Imagen diagrama 1](../img/ER/ejercicio1BaseDatos.drawio.png)
+## Ejercicio de mapeo del mModelo E-R a Relacional
+## Ejercicio 1
+### Modelo E-R
 
+
+![Ejercicio 1 Relacional]()
 ---
 
 ## Ejercicio 2

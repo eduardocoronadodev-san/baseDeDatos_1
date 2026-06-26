@@ -116,7 +116,7 @@ ORDER BY i.fecha_registro DESC;
 
 ## 👤 Autor
 
-- **[Eduardo Coronado Santana]**
+- **Eduardo Coronado Santana**
 - coronado.eduardo.dev@gmail.com
 
 ---
