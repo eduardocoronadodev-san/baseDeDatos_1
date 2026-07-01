@@ -261,3 +261,4 @@ Una institución educativa requiere gestionar la información de su comunidad ac
 > - Determinar la participación de cada entidad.
 
 ![Imagen diagrama 6](../img/ER/ejercicio6BaseDatos.drawio.png)
+
