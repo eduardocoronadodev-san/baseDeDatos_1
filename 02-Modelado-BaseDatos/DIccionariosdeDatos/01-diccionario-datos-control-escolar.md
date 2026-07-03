@@ -147,6 +147,4 @@ Permite controlar la oferta académica, la inscripción de estudiantes y la gest
 
 ---
 
-## 9. Diagrama Relacional
 
-![EjercicioRelacional1](../../img/Relacional/Ejercicio-Relacional1.png)
