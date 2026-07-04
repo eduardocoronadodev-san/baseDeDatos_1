@@ -21,4 +21,4 @@ Una universidad administra profesores y cursos.
 > 3. Puede existir un profesor que actualmente no imparta cursos.
 > 4. Todo curso debe estar asignado a un profesor.
 
-![Imagen diagrama 2](../img/ER/ejercicio2BaseDatos.drawio.png)
+![Imagen diagrama 2](../../img/ER/ejercicio2BaseDatos.drawio.png)

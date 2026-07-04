@@ -65,4 +65,4 @@ We want to keep track of the **dependents** of each employee for insurance purpo
 > - Birth date
 > - Relationship to the employee
 
-![Imagen diagrama 5](../img/ER/ejercicio5BaseDatos.drawio.png)
+![Imagen diagrama 5](../../img/ER/ejercicio5BaseDatos.drawio.png)

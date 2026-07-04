@@ -29,4 +29,4 @@ Un hospital registra información de sus pacientes.
 > - Determinar la cardinalidad.
 > - Determinar la participación de cada entidad.
 
-![Imagen diagrama 1](../img/ER/ejercicio1BaseDatos.drawio.png)
+![Imagen diagrama 1](../../img/ER/ejercicio1BaseDatos.drawio.png)

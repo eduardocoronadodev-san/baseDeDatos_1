@@ -30,4 +30,4 @@ Una empresa dedicada a las ventas al por mayor necesita registrar lo siguiente.
 > 8. El detalle del pedido no existe sin producto.
 > 9. El detalle almacena cantidad vendida y precio de venta.
 
-![Imagen diagrama 4](../img/ER/ejercicio4BaseDatos.drawio.png)
+![Imagen diagrama 4](../../img/ER/ejercicio4BaseDatos.drawio.png)

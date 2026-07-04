@@ -27,4 +27,4 @@ Una escuela administra alumnos y materias.
 > **Nota:**
 > A la relación se le debe nombrar **Inscribe**.
 
-![Imagen diagrama 3](../img/ER/ejercicio3BaseDatos.drawio.png)
+![Imagen diagrama 3](../../img/ER/ejercicio3BaseDatos.drawio.png)
