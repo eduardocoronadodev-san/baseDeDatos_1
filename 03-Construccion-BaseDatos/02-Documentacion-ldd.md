@@ -202,13 +202,20 @@ df_cliente_activo
     )
     ```
 
-## SQL SERVER
-
-
-
-
 ```sql
 CREATE 
 ALTER 
 DROP
 ```
+
+### Alter table 
+
+Permite modificar uana tabla existenete
+
+Puede: 
+
+- Agregar columnas
+- Eliminar columnas
+- Agregar restricciones 
+- Eliminar restricciones
+
