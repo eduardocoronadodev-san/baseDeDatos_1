@@ -587,13 +587,3 @@ SELECT * FROM cliente;
 SELECT * FROM telefono;
 
 
-
---git status 
---git add .
--- git commit 
--- se termino de crear tablas, restricciones, unique, primary key, 
--- check, foreing key, (ON DELETE, ON UPDATE CASCADE, SET NULL , SET DEFULT 
--- Y NO ACTION) utilizando nombrenclatura snake_case
---
-
-antes de crear el otro archivo en carpeta 
