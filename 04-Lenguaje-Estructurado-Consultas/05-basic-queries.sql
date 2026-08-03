@@ -17,7 +17,6 @@ Descripcion:
 
 --abir en managegment 
 
-
 USE comercial_db;
 /*================================
 
@@ -154,11 +153,11 @@ GO
 
 
 SELECT 
-    c.id_categoria
+    c.id_categoria,
     c.nombre,
     p.nombre,
     p.nombre,
-    p.precio
+    p.precio,
     p.existencia
 FROM categorias AS [c]
 INNER JOIN productos AS [p]
@@ -294,4 +293,76 @@ FROM detalle_venta AS dv;
 
 
 
--- TODO: DISTICT CON MAS DE UN CAMPO 
+-- TODO: DISTINCT CON MAS DE UN CAMPO 
+
+
+--CUANDO EL DISTICT SE UTILIZA CON VARIAS COLUMNAS,
+--SE EVAKUA LA COMBINACION COMPLETA 
+
+
+SELECT 
+    id_categoria,
+    id_producto
+FROM productos;
+GO
+
+
+SELECT 
+    id_cliente,
+    id_empleado
+FROM ventas
+ORDER BY 1 DESC, 2 DESC;
+GO
+
+SELECT DISTINCT 
+    id_cliente,
+    id_empleado
+FROM ventas
+ORDER BY 1 DESC, 2 DESC;
+GO
+
+
+--USO DE TOP
+
+--LIMITA LA CANTIDAD DE FILAS DE VUELTAS POR UNA CONSULTA 
+--TOP LIMITA UNA CONSULTA (MUCHOS REGISTROS , SOLO QUIERO VER "100", SE LLAMA LIMIT EN OTROS GESTORES)
+
+SELECT TOP (5)
+    id_producto,
+    codigo,
+    nombre,
+    precio
+FROM productos;
+ORDER BY precio DESC;
+
+SELECT TOP(10)
+    nombre 
+FROM clientes;
+
+--TOP CON EXPRESIONES CALCULADAS
+
+SELECT 
+    codigo,
+    nombre,
+    precio,
+    existencia,
+    (precio * existencia ) AS valor_inventario
+FROM productos;
+
+-- TOP CON PORCENTAJE 
+
+--SQL SERVER PERMITE LIMITAR EL RESULTADO MIENDIOANTE UN PORCENTAJE 
+
+SELECT TOP(10) PERCENT
+    codigo,
+    nombre,
+    precio,
+    existencia,
+    (precio * existencia ) AS valor_inventario
+FROM productos;
+
+--COMBINAR DISTICT CON TOP 
+SELECT DISTINCT TOP (3)
+    descuento
+FROM detalle_ventas;
+
