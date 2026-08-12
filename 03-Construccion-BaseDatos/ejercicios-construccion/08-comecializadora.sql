@@ -1,7 +1,7 @@
-CREATE DATABASE comercializadora;
+CREATE DATABASE comercializadora1;
 GO
 
-USE comercializadora;
+USE comercializadora1;
 GO
 
 --tabla producto
@@ -137,3 +137,4 @@ ALTER TABLE cliente
 ADD CONSTRAINT fk_cliente_representante
 FOREIGN KEY (cliente_id)
 REFERENCES representante (representante_id);
+

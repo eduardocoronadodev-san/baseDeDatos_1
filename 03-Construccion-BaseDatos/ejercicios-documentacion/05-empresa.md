@@ -137,6 +137,7 @@ CREATE TABLE dependent (
     CONSTRAINT fk_dependent_employee
     REFERENCES employee (ssn)
 );
+GO
 
 ```
 

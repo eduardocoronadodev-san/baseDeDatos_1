@@ -1,3 +1,6 @@
+# Empresa version2
+
+```sql
 CREATE DATABASE empresa_ejemplo_1;
 GO
 
@@ -138,3 +141,5 @@ CREATE TABLE dependent (
     REFERENCES employee (ssn)
 );
 GO
+```
+![Empresa Version2](../../img/construccionbd/ejercicio7.png)

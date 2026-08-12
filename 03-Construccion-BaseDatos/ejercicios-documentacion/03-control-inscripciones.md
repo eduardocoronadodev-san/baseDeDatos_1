@@ -8,7 +8,7 @@ GO
 
 CREATE TABLE alumno (
 	numero_alumno INT NOT NULL IDENTITY(1,1),
-	matricula VARCHAR(20) NOT NULL UNIQUE, 
+	matricula VARCHAR(20) NOT NULL UNIQUE,
 	apellido_paterno VARCHAR(50) NOT NULL,
 	apellido_materno VARCHAR(50),
 	semestre TINYINT NOT NULL,

@@ -7,49 +7,51 @@ GO
 USE sistema_academico;
 GO
 
+/*==== CREAR TABLA ALUMNO ======*/
 CREATE TABLE alumno(
-	matricula VARCHAR (20) NOT NULL
-	CONSTRAINT pk_alumno
-	PRIMARY KEY,
+    matricula VARCHAR (20) NOT NULL
+    CONSTRAINT pk_alumno
+    PRIMARY KEY,
 
-	pila_nombre VARCHAR(50) NOT NULL,
+    pila_nombre VARCHAR(50) NOT NULL,
 
-	apellido_paterno VARCHAR (50) NOT NULL,
+    apellido_paterno VARCHAR (50) NOT NULL,
 
-	apellido_materno VARCHAR (50) NOT NULL,
+    apellido_materno VARCHAR (50) NOT NULL,
 
-	correo VARCHAR (100) NOT NULL 
-	CONSTRAINT uq_alumno_correo
-	UNIQUE
+    correo VARCHAR (100) NOT NULL 
+    CONSTRAINT uq_alumno_correo
+    UNIQUE
 );
 GO
 
+/*==== crear tabla depto =====*/
 CREATE TABLE depto(
-	num_depto VARCHAR (20) NOT NULL
-	CONSTRAINT pk_depto
-	PRIMARY KEY,
+    num_depto VARCHAR (20) NOT NULL
+    CONSTRAINT pk_depto
+    PRIMARY KEY,
 
-	nombre VARCHAR (100) NOT NULL,
-	
-	edificio VARCHAR (50) NULL
+    nombre VARCHAR (100) NOT NULL,
+    
+    edificio VARCHAR (50) NULL
 );
 GO
 
-
+/*=== CREAR TABLA PROYECTO ======*/
 CREATE TABLE proyecto(
-	num_proyecto VARCHAR (20) NOT NULL
-	CONSTRAINT pk_proyecto
-	PRIMARY KEY,
+    num_proyecto VARCHAR (20) NOT NULL
+    CONSTRAINT pk_proyecto
+    PRIMARY KEY,
 
-	nombre_proyecto VARCHAR (100) NOT NULL,
+    nombre_proyecto VARCHAR (100) NOT NULL,
 
-	presupuesto DECIMAL(12,2) NULL
-	CONSTRAINT ck_proyecto_presupuesto
-	CHECK (presupuesto >= 0)
+    presupuesto DECIMAL(12,2) NULL
+    CONSTRAINT ck_proyecto_presupuesto
+    CHECK (presupuesto >= 0)
 );
 GO
 
-
+/*===== CREAR TABLA PROFESOR =====*/
 CREATE TABLE profesor (
     id_profesor VARCHAR(20) NOT NULL
     CONSTRAINT pk_profesor
@@ -67,6 +69,7 @@ CREATE TABLE profesor (
 );
 GO
 
+/*===== CREAR TABLA MATERIA =====*/
 CREATE TABLE materia (
     clave_materia VARCHAR(20) NOT NULL
     CONSTRAINT pk_materia
@@ -80,7 +83,7 @@ CREATE TABLE materia (
 );
 GO
 
-
+/*===== CREAR TABLA ALUMNO TEL =====*/
 CREATE TABLE alumno_tel (
     id_telefono INT NOT NULL IDENTITY(1,1)
     CONSTRAINT pk_alumno_tel
@@ -94,7 +97,7 @@ CREATE TABLE alumno_tel (
 );
 GO
 
-
+/*===== CREAR TABLA CREDENCIAL =====*/
 CREATE TABLE credencial (
     num_credencial VARCHAR(20) NOT NULL,
 
@@ -114,7 +117,7 @@ CREATE TABLE credencial (
 );
 GO
 
-
+/*===== CREAR TABLA CURSA =====*/
 CREATE TABLE cursa (
     matricula VARCHAR(20) NOT NULL,
 
@@ -140,7 +143,7 @@ CREATE TABLE cursa (
 );
 GO
 
-
+/*===== CREAR TABLA DEPENDIENTE =====*/
 CREATE TABLE dependiente (
     id_dependiente INT NOT NULL IDENTITY(1,1)
     CONSTRAINT pk_dependiente
@@ -158,7 +161,7 @@ CREATE TABLE dependiente (
 );
 GO
 
-
+/*===== CREAR TABLA PARTICIPA =====*/
 CREATE TABLE participa (
     id_profesor VARCHAR(20) NOT NULL,
 

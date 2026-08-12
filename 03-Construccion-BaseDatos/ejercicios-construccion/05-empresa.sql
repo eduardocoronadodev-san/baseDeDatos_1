@@ -1,12 +1,10 @@
-
-
-CREATE DATABASE empresa;
+CREATE DATABASE empresa_ejemplo_1;
 GO
 
-USE empresa;
+USE empresa_ejemplo_1;
 GO
 
-
+/*===== CREAR TABLA EMPLOYEE =====*/
 CREATE TABLE employee (
     ssn VARCHAR(20) NOT NULL
     CONSTRAINT pk_employee
@@ -28,6 +26,7 @@ CREATE TABLE employee (
 );
 GO
 
+/*===== CREAR TABLA DEPARTMENT =====*/
 CREATE TABLE department (
     name VARCHAR(100) NOT NULL,
     number INT NOT NULL,
@@ -94,6 +93,7 @@ CREATE TABLE project (
 );
 GO
 
+
 CREATE TABLE work_on (
     ssn VARCHAR(20) NOT NULL,
     name_project VARCHAR(100) NOT NULL,
@@ -133,3 +133,4 @@ CREATE TABLE dependent (
     CONSTRAINT fk_dependent_employee
     REFERENCES employee (ssn)
 );
+GO

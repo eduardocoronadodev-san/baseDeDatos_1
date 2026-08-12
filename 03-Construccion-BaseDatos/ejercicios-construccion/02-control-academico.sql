@@ -1,4 +1,4 @@
-CREATE DATABASE control_academico;
+CREATE DATABASE control_acad;
 GO
 
 USE control_academico;
