@@ -1,7 +1,9 @@
-CREATE DATABASE comercializadora1;
+# Ejercicio 8 Comercializadora 
+```SQL
+CREATE DATABASE comercializadora;
 GO
 
-USE comercializadora1;
+USE comercializadora;
 GO
 
 --tabla producto
@@ -137,4 +139,5 @@ ALTER TABLE cliente
 ADD CONSTRAINT fk_cliente_representante
 FOREIGN KEY (cliente_id)
 REFERENCES representante (representante_id);
-
+```
+![DiagramaComercializadora](../../img/construccionbd/ejercicio8.png)
