@@ -1,72 +1,105 @@
 # Empresa version2
 
 ```sql
-CREATE DATABASE empresa_ejemplo_1;
+CREATE DATABASE empresa_ejemplo_2;
 GO
 
-USE empresa_ejemplo_1;
+USE empresa_ejemplo_2;
 GO
 
-/*===== CREAR TABLA EMPLOYEE =====*/
-CREATE TABLE employee (
-    ssn VARCHAR(20) NOT NULL
+CREATE TABLE employee(
+    num_employee INT NOT NULL IDENTITY (1,1)
     CONSTRAINT pk_employee
     PRIMARY KEY,
 
-    firstname VARCHAR(50) NOT NULL,
-    lastname VARCHAR(50) NOT NULL,
-    bdate DATE NOT NULL,
-    address VARCHAR(150) NOT NULL,
+    ssn VARCHAR (20) NOT NULL
+    CONSTRAINT uq_employee_ssn
+    UNIQUE,
 
-    salary DECIMAL(10,2) NOT NULL
+    firstname VARCHAR (50) NOT NULL,
+
+    lastname VARCHAR(50) NOT NULL,
+
+    bdate DATE NOT NULL,
+
+    address VARCHAR (150) NOT NULL,
+
+    salary DECIMAL (10, 2) NOT NULL
     CONSTRAINT ck_employee_salary
     CHECK (salary > 0),
 
-    sex CHAR(1) NOT NULL,
-    name_project VARCHAR(100) NOT NULL,
-    
-    /* CORRECCIÓN: Se permite NULL para no bloquear la primera inserción si el depto no existe aún */
-    number_project INT NULL, 
-    
-    /* CORRECCIÓN: Se permite NULL para que el Director General pueda no tener jefe */
-    jefe VARCHAR(20) NULL 
+    sex CHAR (1) NOT NULL,
+
+    number_project INT NULL,
+
+    jefe INT NULL
 );
 GO
 
-/*===== CREAR TABLA DEPARTMENT =====*/
-CREATE TABLE department (
+CREATE TABLE dependent (
+    number_dependent INT NOT NULL IDENTITY(1,1)
+    CONSTRAINT pk_dependent
+    PRIMARY KEY,
+
     name VARCHAR(100) NOT NULL,
-    number INT NOT NULL,
-    ssn VARCHAR(20) NOT NULL,
-    start_date DATE NOT NULL,
 
-    CONSTRAINT pk_department
-    PRIMARY KEY (name, number),
+    number_employ INT NOT NULL
+    CONSTRAINT fk_dependent_employee
+    REFERENCES employee (num_employee),
 
-    CONSTRAINT uq_department_number
-    UNIQUE (number),
+    sex CHAR(1) NOT NULL,
 
-    CONSTRAINT uq_department_ssn
-    UNIQUE (ssn),
+    bdate DATE NOT NULL,
 
-    CONSTRAINT fk_department_employee
-    FOREIGN KEY (ssn)
-    REFERENCES employee (ssn)
+    relationship VARCHAR(50) NOT NULL
 );
 GO
 
+CREATE TABLE project (
+    number_project INT NOT NULL IDENTITY(1,1)
+    CONSTRAINT pk_project
+    PRIMARY KEY,
+
+    number_dependent INT NULL
+    CONSTRAINT fk_project_dependent
+    REFERENCES dependent (number_dependent),
+
+    location VARCHAR(100) NOT NULL
+);
+GO
 
 ALTER TABLE employee
-ADD CONSTRAINT fk_employee_department
+ADD CONSTRAINT fk_employee_project
 FOREIGN KEY (number_project)
-REFERENCES department (number);
+REFERENCES project (number_project);
 GO
-
 
 ALTER TABLE employee
 ADD CONSTRAINT fk_employee_jefe
 FOREIGN KEY (jefe)
-REFERENCES employee (ssn);
+REFERENCES employee (num_employee);
+GO
+
+
+CREATE TABLE department (
+    manager INT NOT NULL,
+
+    number INT NOT NULL,
+
+    name VARCHAR(100) NOT NULL,
+
+    start_date DATE NOT NULL,
+
+    CONSTRAINT pk_department
+    PRIMARY KEY (number),
+
+    CONSTRAINT uq_department_manager
+    UNIQUE (manager),
+
+    CONSTRAINT fk_department_manager
+    FOREIGN KEY (manager)
+    REFERENCES employee (num_employee)
+);
 GO
 
 
@@ -83,62 +116,26 @@ CREATE TABLE locations (
 );
 GO
 
-
-CREATE TABLE project (
-    name VARCHAR(100) NOT NULL,
-    number INT NOT NULL,
-    location VARCHAR(100) NOT NULL,
-    name_project VARCHAR(100) NOT NULL,
-    number_project INT NOT NULL,
-
-    CONSTRAINT pk_project
-    PRIMARY KEY (name, number),
-
-    CONSTRAINT fk_project_department
-    FOREIGN KEY (name_project, number_project)
-    REFERENCES department (name, number)
-);
-GO
-
-
 CREATE TABLE work_on (
-    ssn VARCHAR(20) NOT NULL,
-    name_project VARCHAR(100) NOT NULL,
+    num_employ INT NOT NULL,
+
     number_project INT NOT NULL,
+
     hours DECIMAL(5,2) NOT NULL,
 
     CONSTRAINT pk_work_on
-    PRIMARY KEY (
-        ssn,
-        name_project,
-        number_project
-    ),
+    PRIMARY KEY (num_employ, number_project),
 
     CONSTRAINT ck_work_on_hours
     CHECK (hours >= 0),
 
     CONSTRAINT fk_work_on_employee
-    FOREIGN KEY (ssn)
-    REFERENCES employee (ssn),
+    FOREIGN KEY (num_employ)
+    REFERENCES employee (num_employee),
 
     CONSTRAINT fk_work_on_project
-    FOREIGN KEY (name_project, number_project)
-    REFERENCES project (name, number)
-);
-GO
-
-
-CREATE TABLE dependent (
-    name VARCHAR(100) NOT NULL
-    CONSTRAINT pk_dependent
-    PRIMARY KEY,
-
-    sex CHAR(1) NOT NULL,
-    birthdate DATE NOT NULL,
-
-    ssn VARCHAR(20) NOT NULL
-    CONSTRAINT fk_dependent_employee
-    REFERENCES employee (ssn)
+    FOREIGN KEY (number_project)
+    REFERENCES project (number_project)
 );
 GO
 ```

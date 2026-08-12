@@ -141,4 +141,4 @@ GO
 
 ```
 
-![DiagramaComercializadora](../../img/construccionbd/ejercicio4.)
+![DiagramaComercializadora](../../img/construccionbd/ejercicio5.png)
