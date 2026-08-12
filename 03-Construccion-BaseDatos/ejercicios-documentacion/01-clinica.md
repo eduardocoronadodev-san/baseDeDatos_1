@@ -31,4 +31,4 @@ CREATE TABLE expediente(
 );
 GO
 ```
-![Ejercicio1_construccion](../img/construccionbd/ejercicio1.png)
+![Ejercicio1_construccion](../../img/construccionbd/ejercicio9.png)
