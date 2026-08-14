@@ -55,4 +55,4 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=P@ssw0rd" \
    -p 1452:1433 --name SQLServerG2 \
    -d -v v-sqlServer:/var/opt/mssql/data \
    d01cc
-   
+   var opt msql data
